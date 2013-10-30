@@ -18,6 +18,7 @@
 		<h1>Menu</h1>
 		<button class="turnos" onClick="javascript: document.location.href='turnos.html'"><h3>Turns Mode</h3></button>
 		<button class="tiempo" onClick="javascript: document.location.href='tiempo.html'"><h3>Time Mode</h3></button>
+		<button class="tiempo" onClick="javascript: document.location.href='juego_infinito.html'"><h3>Loooong Game</h3></button>
 	</div>
 </body>
 </html>

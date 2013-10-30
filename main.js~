@@ -87,7 +87,7 @@ startNewGame = function() {
 					]}));
 			starburst.x = x; starburst.y = y;
 			starburst.play();
-			square_removed2_sound.play();
+			square_removed2.play();
 			effectContainer.addChild(starburst);
 			starburst.onAnimationEnd = function() {
 				effectContainer.removeChild(starburst);
@@ -1130,7 +1130,7 @@ startNewGame = function() {
 	var selectionIndicator = null;
 	
 	var numTileTypes = (typeof iTiles !== 'undefined' && iTiles || 6) - 1;
-	var mode = typeof iMode !== 'undefined' && iMode || 'time'; //turns, time
+	var mode = typeof iMode !== 'undefined' && iMode || 'turns'; //turns, time
 	
 	var matchesMadeThisMove = 0; //Reset to 1 elsewhere too.
 	var score = watchableCounter(
