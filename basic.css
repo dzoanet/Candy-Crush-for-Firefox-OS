@@ -11,19 +11,16 @@ body{background: url(images/bg.jpg) no-repeat center center fixed;
 p{text-align: center;}
 
 h3{font-family: "candy", Sans-serif;
-  font-size: 2rem; 
+  font-size: 1.2rem; 
   margin: -0.1rem 0 0 -2.5rem;
   color: white;
   padding: 0.4rem 0.4rem 0.4rem 3rem;}
 
-button{margin-top:1em; width: 100%; height: 2.8rem; background-color: #ff00df;}
+button{width: 100%; height: 2.8rem; background-color: #ff00df;}
 
 div#game {
-	border: 3px ridge;
 	font-family: "candy";
 	font-size: 1rem;
-	padding : 17%;
-	padding-bottom: 0px;
 	width: 100%;
 	overflow: visible;
 	margin-left:auto;
@@ -127,17 +124,17 @@ div#music {
 /*Landscape*/
 @media only screen and (min-width: 640px){
 	div#game{font-size: 1em; width: 69%;}
-	canvas#main{width: 140%; left: -30px;}
+	canvas#main{width: 130%; height:480px; left: -30px;}
 }
 
 /*Portrait*/
 @media only screen and (min-width: 768px){
 	div#game{font-size: 1em; width: 70%;}
-	canvas#main{width: 130%; left: -30px;}
+	canvas#main{width: 130%; height:480px; left: -25px;}
 }
 
 /*Landscape*/
 @media only screen and (min-width: 1024px){
 	div#game{font-size: 1em; width: 71%;}
-	canvas#main{width: 120%; left: -30px;}
+	canvas#main{width: 120%; height:768px; left: -20px;}
 }

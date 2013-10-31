@@ -11,6 +11,9 @@ var divine_sound = new Audio('sounds/divine.ogg')
 var delicious_sound = new Audio('sounds/delicious.ogg')
 var sugar_crush_sound = new Audio('sounds/sugar_crush.ogg')
 var square_removed2_sound = new Audio('sounds/square_removed2.ogg')
+var level_completed_sound = new Audio('sounds/level_completed.ogg')
+var combo_sound1 = new Audio('sounds/combo_sound1.ogg')
+var super_colour_bomb_sound = new Audio('sounds/super_colour_bomb1.ogg')
 
 startNewGame = function() {
 	"use strict";
@@ -214,6 +217,7 @@ startNewGame = function() {
 				var bMatches = [linesInDir(b, 'h'), linesInDir(b, 'v')];
 				if(((a.index < 0 || b.index < 0) && b.index != a.index) || (a.isBonus && b.isBonus)) { //Chocolate-bombs are "indexless", at -1. (This keeps them from being matched normally with regards to the hint bounce.) If tile a xor tile b is chocolate, OR tile a and tile b are both bonus tiles, then we need to combine the two tiles we're switching. (We won't care about 'normal' matches, in this case.)
 					removeTilesByIndex(a,b);
+					super_colour_bomb_sound.play();
 					if(mode === 'turns') remainingTiles.add(-1);
 				} else if(	aMatches[0].length > 1 || //[TILES]: see if we made any matches.
 							aMatches[1].length > 1 || //1 because we want 2 or more tiles matches, 2 because it doesn't include the switched tile, so 3 alltogether.)
@@ -659,6 +663,7 @@ startNewGame = function() {
 		var tweenCount = 0;
 		var scoreDelta = 0;
 		_.range(xTiles).map(function(x) { //Tiles falling down to fill gaps left by replaced tiles.
+			combo_sound1.play();
 			_.range(yTiles-1, -1, -1).map(function(y) {
 				var tile = gamefield[x][y];
 				if(tile) {
@@ -956,10 +961,8 @@ startNewGame = function() {
 		createjs.Ticker.setPaused(true);
 		gameStatus.set('finished');
 		window.setTimeout(function(){
-			window.alert("Game Over.\nYour score is " + score.value() + " points!");
-		 		$(function() {
-				$( "#facebook-div" ).dialog();
-			});}, 100);
+			window.alert("Game Over.\nYour score is " + score.value() + " points!");}, 100);
+			level_completed_sound.play();
 	};
 	var runGameOver = _.once(runGameOvers);
 	
